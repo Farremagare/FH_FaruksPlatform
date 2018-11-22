@@ -1,0 +1,85 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyHorizontalMovement : MonoBehaviour
+{
+    public float moveSpeed = 2f;
+    public bool isLeft = true;
+    public bool IsMoving;
+
+    private Rigidbody2D rbody;
+    // Use this for initialization
+    void Start()
+    {
+        rbody = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
+        
+        if (IsMoving == false)
+        {
+            moveSpeed *= -1;
+            IsMoving = true;
+        }
+        if (moveSpeed < 0)
+        {
+            isLeft = false;
+        }
+        else
+        {
+            isLeft = true;
+        }
+        if (isLeft == false)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+    //när den träffar en trigger så flippar objectet som har triggerat collidern
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsMoving == true)
+        {
+            IsMoving = false;
+        }
+        else
+        {
+            IsMoving = true;
+        }
+    }
+
+
+
+    //(inne i void uptade)
+    //    if(Input.GetKeydown(KeyCode.H))
+    //      {
+    //         move(true)
+    //      }
+
+    // void Move(bool flip)
+    // {
+    //   if (flip == true)
+    //   {
+    //    if isLeft = !isLeft;
+    //if (isLeft == true) 
+    // {
+    //    rbody.velocity = new Vector2(-moveSpeed, rbody.velocity.y);
+    //    transform.localScale´= new Vector3(1, 1, 1);
+    // }
+    //
+
+
+
+
+
+
+
+
+}
