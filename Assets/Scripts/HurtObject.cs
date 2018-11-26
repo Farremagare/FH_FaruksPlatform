@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement; // lägger till unityengine för scene managements
 
 public class HurtObject : MonoBehaviour
 {
+    //private void som triggeras endast när en collider colliderar med denna
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        //ifall gamobjelktet med taggen "Player" colliderar, printas "HAHAHAHA YOU DIED!!!" 
+        if (collision.gameObject.tag == "Player")
         {
             print("HAHAHAHA YOU DIED!!!");
-            Scene active = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(active.name);
+         
             
             //SceneManager.GetActiveScene().IsValid();
         }

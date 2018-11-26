@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
+    //speed rangen kan endast vara mellan 0-20
     [Range(0, 20f)]
     public float moveSpeed;
     public float jumpHeight;
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
         //Klicka på "space knappen" för att hoppa eller åka i Y-axeln
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //ifall groundCheck rör mer än 0 så får objektet en hastighet i Y-axeln
             if (groundCheck.touches > 0)
             {
             rbody.velocity = new Vector2(rbody.velocity.x, jumpHeight);

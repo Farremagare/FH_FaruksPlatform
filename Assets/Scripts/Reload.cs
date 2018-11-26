@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;// lägger till engingen för scenes
 
 public class Reload : MonoBehaviour
 {
 
-    //variabel som ersätter "Scene till levelToload för att göra det enklare
+    //variabel som ersätter "Scene" till levelToload för att göra det enklare
     public string levelToload = "Scene";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //ifall Spelaren åker ut ur världen så respawnas spelaren och printas "YOU DIED! :/" 
+        //ifall objektet med taggen "player" rör collidern, printas "YOU DIED! :/" och loada scenen levelToload, vilket är "Level1"
         if (collision.tag == "Player")
         {
             print("YOU DIED! :/");

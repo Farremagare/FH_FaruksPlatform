@@ -18,6 +18,7 @@ public class EnemyHorizontalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //horisontal movement för ett objekt
         rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
         
         if (IsMoving == false)
