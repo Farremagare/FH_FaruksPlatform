@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 163590eb9da81884d96e7f0ca729fffc
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a572224669c2c244aa85f98850c409bf
+  - enabled: 1
+    path: Assets/Scenes/Turtorial.unity
+    guid: 17a98d2a1bb714449bbdc30064353ac5
   m_configObjects: {}
