@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Scoin : MonoBehaviour
 {
-    //variablen "score" är en int som lägger till "5" varje gång ett objekt med taggen "Player" rör objektet som scriptet är på
+    //variablen "score" är en int som lägger till "5" i poängsumman
     public int score = 5;
 
-    //En private void som triggeras endast när ett annat objekt med taggen "Player" rör objektet med detta scriptet
+    //En private void som har OnTriggerEnter2D funktionen. Och OnTriggerEnter2d är att när ett annat objekt går
+    //in i en trigger collider bifogat till detta objektet(2D physics bara)
+    //Collider2D är en föräldrar class för collider typer använda med 2D gameplay, 
+    //d.v.s olika typer av colliders som är mest använda vilket gör de till föräldrar class
+    //(måste användas med 2D gameplay)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //ifall colider med taggen "Player" rör objekktet med detta scriptet  
+        //ifall colider med taggen "Player" rör ett annat objekt med en colider(Trigger) 
         if (collision.tag == "Player")
         {
             //skapa en temporär variabel "controller" och sätt den till 
@@ -18,7 +22,7 @@ public class Scoin : MonoBehaviour
             GameObject controller = GameObject.FindWithTag("GameController");
             if (controller != null)
             {
-                //skapa en temporär variabel tracker" och sätt den till 
+                //skapa en temporär variabel "tracker" och sätt den till 
                 //resultatet av sökningen efter komponenten "ScoreTracker"
                 ScoreTracker tracker = controller.GetComponent<ScoreTracker>();
                 if (tracker != null)
@@ -28,7 +32,8 @@ public class Scoin : MonoBehaviour
                 }
                 else
                 {
-                    //men om Scriptet ScoreTracker saknas i objektet, printa "ScoreTracker saknas på GameController"
+                    //men om Scriptet "ScoreTracker" saknas i GameController, 
+                    //printa "ScoreTracker saknas på GameController"
                     Debug.LogError("ScoreTracker saknas på GameController");
 
                 }

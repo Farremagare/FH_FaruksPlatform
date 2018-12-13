@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    //variablen "score" lägger till "1" varje gång ett objekt rör objektet som scriptet är på
+    //variablen "score" är en int som lägger till "5" i poängsumman
     public int score = 1;
 
-    //en private void för collidern
+    //En private void som har OnTriggerEnter2D funktionen. Och OnTriggerEnter2d är att när ett annat objekt går
+    //in i en trigger collider bifogat till detta objektet(2D physics bara)
+    //Collider2D är en föräldrar class för collider typer använda med 2D gameplay, 
+    //d.v.s olika typer av colliders som är mest använda vilket gör de till föräldrar class
+    //(måste användas med 2D gameplay)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //triggar collidern när objektets collider rör ett annat objekt med tagen "Player" 
+        //ifall colider med taggen "Player" rör ett annat objekt med en colider(Trigger) 
         if (collision.tag == "Player")
         {
             //skapa en temporär variabel "controller" och sätt den till 
@@ -23,17 +27,18 @@ public class Coin : MonoBehaviour
                 ScoreTracker tracker = controller.GetComponent<ScoreTracker>();
                 if (tracker != null)
                 {
+                    //lägger till +score till totalscoret
                     tracker.totalScore += score;
                 }
-                //Printar ("") ifall "ScoreTrackern" sacknas på "GameControllen",
-                //alltså att scriptet finns men saknas på rutan
+                //men om Scriptet "ScoreTracker" saknas i GameController, 
+                //printa "ScoreTracker saknas på GameController"
                 else
                 {
                     Debug.LogError("ScoreTracker saknas på GameController");
 
                 }
             }
-            //printar ("") ifall "GameControllern" inte finns
+            //men om GameController inte finns på objektet, printas "GameController finns inte"
             else
             {
                 Debug.LogError("GameController finns inte");

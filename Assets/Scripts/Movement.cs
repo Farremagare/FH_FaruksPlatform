@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//objektet med detta scriptet behöver (require) Rigidbody2D för att scriptet ska funka
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {

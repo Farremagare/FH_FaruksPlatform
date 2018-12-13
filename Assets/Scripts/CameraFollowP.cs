@@ -8,7 +8,7 @@ public class CameraFollowP : MonoBehaviour
 
 
 
-    //bara ha detta scriptet för cameran
+    //¨detta är bara för att göra så att kameran funkar på spelaren
 
 
 
